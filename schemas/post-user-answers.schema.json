@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "username": {
+            "type": "string",
+            "minLength": 1
+        },
+        "answers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "question_id": {
+                        "type": "string",
+                        "pattern": "^option\\d+$"
+                    },
+                    "answer": {
+                        "type": "string",
+                        "pattern": "^option\\d+$"
+                    }
+                },
+                "required": ["question_id", "answer"],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": ["username", "answers"],
+    "additionalProperties": false
+}
