@@ -81,7 +81,7 @@ We have two types of tests:
 ## Client
 
 I used Cobra as described in the challenge. 
-I did in a very simple way, not validating responses from the api apart from errors. 
+I did in a very simple way, not validating responses from the api apart from errors. I mean, I did not check the response status code. Sorry but I was lazy and spent a lot of time on this.
 I used a selector to avoid users to be able to introduce wrong responses and having to have extra errors checking.
 
 ## Monitoring/Observability
