@@ -8,6 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	utils "github.com/sebidchi/ft-quiz/pkg"
+	"github.com/sebidchi/ft-quiz/pkg/http/response"
 	"github.com/xeipuuv/gojsonschema"
 )
 
@@ -30,13 +31,7 @@ func (jsv *RequestValidatorMiddleware) Validate(schemaNameLocation string) gin.H
 		bodyBytes, err := io.ReadAll(newRequest.Body)
 
 		if err != nil {
-			jsv.responseMiddleware.WriteErrorResponse(c, gin.H{
-				"ID":     utils.NewUlid().String(),
-				"Code":   "invalid_payload_received",
-				"Title":  "Invalid Payload",
-				"Detail": "Invalid payload received",
-				"Status": "400",
-			}, http.StatusBadRequest, err)
+			jsv.responseMiddleware.WriteErrorResponse(c, response.NewBadRequest("Invalid payload received"), http.StatusBadRequest, err)
 			c.Abort()
 			return
 		}
@@ -45,13 +40,7 @@ func (jsv *RequestValidatorMiddleware) Validate(schemaNameLocation string) gin.H
 
 		result, err := gojsonschema.Validate(schemaLoader, documentLoader)
 		if err != nil {
-			jsv.responseMiddleware.WriteErrorResponse(c, gin.H{
-				"ID":     utils.NewUlid().String(),
-				"Code":   "invalid_payload_received",
-				"Title":  "Invalid Payload",
-				"Detail": "Invalid payload received",
-				"Status": "400",
-			}, http.StatusBadRequest, err)
+			jsv.responseMiddleware.WriteErrorResponse(c, response.NewBadRequest("Invalid payload received"), http.StatusBadRequest, err)
 			c.Abort()
 			return
 		}

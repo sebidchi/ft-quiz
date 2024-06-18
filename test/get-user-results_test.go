@@ -69,7 +69,7 @@ func (suite *GetUserResults) TestHandleGetUserResultsNotFound() {
 
 	suite.checkResponse(
 		http.StatusNotFound,
-		"[{\"id\":\"<<PRESENCE>>\",\"title\":\"Not Found\",\"detail\":\"user has no results yet\",\"status\":\"404\",\"code\":\"not_found\"}]",
+		"{\"Code\":\"not_found\",\"Detail\":\"user has no results yet\",\"ID\":\"<<PRESENCE>>\",\"Status\":\"404\",\"Title\":\"Not Found\"}\n",
 		response,
 	)
 }

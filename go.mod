@@ -6,7 +6,6 @@ require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/brianvoe/gofakeit v3.18.0+incompatible
 	github.com/gin-gonic/gin v1.10.0
-	github.com/google/jsonapi v1.0.0
 	github.com/joho/godotenv v1.5.1
 	github.com/kinbiko/jsonassert v1.1.1
 	github.com/oklog/ulid/v2 v2.1.0
